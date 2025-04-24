@@ -1,16 +1,19 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
 
 const PORT = Number(process.env.PORT || 9800);
 
+const dbConnect = require("./db/config");
+dbConnect();
 
-mongoose.connect("mongodb://localhost:27017/").then(()=>{
-  console.log("Database connect successfully ")
-}).catch((e)=>{
-  console.log("Database Error")
-})
+const indexRoute = require("./routes");
+
+// Add these lines to enable body parsing middleware
+app.use(express.json()); // For parsing application/json
+app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
+
+app.use("/", indexRoute);
 
 app.listen(PORT, () => {
   console.log(`Application Running ${PORT}`);
