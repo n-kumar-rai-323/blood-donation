@@ -2,7 +2,7 @@ const router = require("express").Router();
 const useDonerController=require("./bloodDonerController")
 
 
-router.post("/doner", async (req, res, next) => {
+router.post("/donor", async (req, res, next) => {
   try {
    console.log("Request body:", req.body)
    const result = await useDonerController.donerRegister(req.body)
