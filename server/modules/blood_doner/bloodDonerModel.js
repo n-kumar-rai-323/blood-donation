@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const bloodDonorSchema = new Schema({
-  userId: {
-    type: Schema.Types.ObjectId,
-    ref: 'User', // Assuming you have a User model
-    required: true,
-    unique: true,
-  },
+  // userId: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'User', // Assuming you have a User model
+  //   required: true,
+  //   unique: true,
+  // },
   bloodGroup: {
     type: String,
     enum: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
